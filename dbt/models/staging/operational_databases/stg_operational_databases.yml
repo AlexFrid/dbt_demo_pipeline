@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: Staged user data from our operational database.
+    columns: 
+      - name: user_id
+        description: An id (int), uniquely identifying each user. Example - 1234.
+        tests:
+          - unique
+          - not_null
+      - name: postcode
+        description: A postcode (string), indicating where a user is at the moment. This attribute may change regularly based on the user’s location. Example - SW19.
+
+  - name: stg_pageviews
+    description: Staged pageviews data from our operational database.
+    columns: 
+      - name: pageview_id
+        description: A pageview_id (string), a uuid uniquely identifying a users pageview. Example - dbdf838d-5c9d-42a5-bbfd-dd4d4a667606.
+        tests:
+          - not_null
+      - name: user_id
+        description: A user_id (int), uniquely identifying a user. This matches the id on the users table. Example - 1234.
+        tests:
+          - not_null
+      - name: pageview_time
+        description: pageview_time (datetime) column indicating when the pageview event occurred. Example - 2010-01-01 04:00:00.000000
+      - name: url
+        description: A url (string) of the page being visited. Example - www.website.com/index.html

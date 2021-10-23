@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: fct_pageviews_count_current_postcode
+    description: Users current postcodes.
+    columns: 
+      - name: user_id
+        description: An id (int), uniquely identifying each user. Example - 1234.
+        tests:
+          - not_null
+      - name: number_of_pageviews
+        description: number_of_pageviews (int), a count of pageviews by postcode Example - 23.
+      - name: postcode_current
+        description: A postcode (string), indicating where a user is at the moment. Example - SW19.
+      - name: pageview_time
+        description: pageview_time (datetime) column indicating when the pageview event occurred. Example - 2010-01-01 04:00:00.000000
+
+  - name: fct_pageviews_count_historic_postcode
+    description: Users current and historic postcodes.
+    columns: 
+      - name: user_id
+        description: An id (int), uniquely identifying each user. Example - 1234.
+        tests:
+          - not_null
+      - name: number_of_pageviews
+        description: number_of_pageviews (int), a count of pageviews by postcode Example - 23.
+      - name: postcode_historic
+        description: postcode_historic (string), indicating where a user is at the moment and where a user has been. Example - SW19.
+      - name: pageview_time
+        description: pageview_time (datetime) column indicating when the pageview event occurred. Example - 2010-01-01 04:00:00.000000

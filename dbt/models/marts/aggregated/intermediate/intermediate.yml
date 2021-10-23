@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: postcode_pageview__datediff
+    description: Finds the best approximation of a users postcode when a pageview event occurred.
+    columns: 
+      - name: pageview_id
+        description: A pageview_id (string), a uuid uniquely identifying a users pageview. Example - dbdf838d-5c9d-42a5-bbfd-dd4d4a667606.
+        tests:
+          - not_null
+      - name: user_id
+        description: An id (int), uniquely identifying each user. Example - 1234.
+        tests:
+          - not_null
+      - name: postcode_historic
+        description: postcode_historic (string), indicating where a user is at the moment and where a user has been. Example - SW19.
+      - name: pageview_time
+        description: pageview_time (datetime) column indicating when the pageview event occurred. Example - 2010-01-01 04:00:00.000000

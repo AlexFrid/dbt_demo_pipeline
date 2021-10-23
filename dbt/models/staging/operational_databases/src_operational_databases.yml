@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
+    database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+    tables:
+      - name: pageviews_extract
+      - name: users_extract
